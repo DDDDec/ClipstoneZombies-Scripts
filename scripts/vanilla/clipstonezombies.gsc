@@ -3,14 +3,10 @@
 
 #include scripts/zm/clipstone/utils;
 #include scripts/zm/clipstone/account;
-#include scripts/zm/clipstone/leaderboards;
-#include scripts/zm/clipstone/cmds;
-#include scripts/zm/clipstone/staff;
 
 init()
 {
     level thread onPlayerConnect();
-    level thread onPlayerSay();
 
     level.perk_purchase_limit = 20;
 
@@ -29,7 +25,7 @@ onPlayerConnect()
         player setclientdvar( "r_fog", "0" );
         player setclientdvar( "r_dof_enable", "0" );
 
-        // player.ignoreme = 1;
-        // player enableInvulnerability();
+        player.ignoreme = 1;
+        player enableInvulnerability();
     }
 }
