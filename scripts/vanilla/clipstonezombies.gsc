@@ -10,7 +10,7 @@ init()
 
     level.perk_purchase_limit = 20;
 
-    level.Clipstone["api_key"] = GetDvar("api_kay");
+    level.Clipstone["api_key"] = GetDvar("api_key");
     level.Clipstone["api_agent"] = GetDvar("api_agent");
 }
 
