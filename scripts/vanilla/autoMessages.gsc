@@ -7,6 +7,8 @@ autoMessages(player)
 {
     for(;;)
     {
+        player endon("disconnect");
+
         headers = [];
         headers["Content-Type"] = "application/json";
         headers["Api_Key"] = level.Clipstone["api_key"];
