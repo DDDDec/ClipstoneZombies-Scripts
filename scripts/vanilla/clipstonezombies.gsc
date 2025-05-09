@@ -3,6 +3,7 @@
 
 #include scripts/zm/clipstone/utils;
 #include scripts/zm/clipstone/account;
+#include scripts/zm/clipstone/autoMessages;
 
 init()
 {
@@ -21,6 +22,7 @@ onPlayerConnect()
         level waittill("connected", player);
 
         player thread account(player);
+        player thread autoMessages(player);
 
         player setclientdvar( "r_fog", "0" );
         player setclientdvar( "r_dof_enable", "0" );

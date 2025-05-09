@@ -1,9 +1,6 @@
 #include maps/mp/_utility;
 #include common_scripts/utility;
 
-#include scripts/zm/clipstone/utils;
-#include scripts/zm/clipstone/account;
-
 getCurrentMap()
 {
     location = getDvar( "ui_zm_mapstartlocation" );

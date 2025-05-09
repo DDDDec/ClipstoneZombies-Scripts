@@ -2,7 +2,6 @@
 #include common_scripts/utility;
 
 #include scripts/zm/clipstone/utils;
-#include scripts/zm/clipstone/account;
 
 uploadStats()
 {
