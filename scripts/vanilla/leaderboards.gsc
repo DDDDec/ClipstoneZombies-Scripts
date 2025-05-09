@@ -3,6 +3,22 @@
 
 #include scripts/zm/clipstone/utils;
 #include scripts/zm/clipstone/account;
-#include scripts/zm/clipstone/leaderboards;
-#include scripts/zm/clipstone/cmds;
-#include scripts/zm/clipstone/staff;
+
+uploadLeaderboard()
+{
+    headers = [];
+    headers["Content-Type"] = "application/json";
+    headers["Api_Key"] = level.Clipstone["api_key"];
+    headers["Api_Agent"] = level.Clipstone["api_agent"];
+
+    data = [];
+    data["guid"] = player getGUID();
+    data["name"] = player.name;
+
+    request = httpPost("http://127.0.0.1:8000/api/vanilla/leaderboard", jsonSerialize(data, 4), headers);
+    request waittill("done", result);
+
+    leaderboard = jsonParse(result);
+
+    jsonDump("leaderboard", result, 4);
+}
