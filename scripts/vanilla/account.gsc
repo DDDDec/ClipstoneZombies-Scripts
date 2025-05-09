@@ -22,22 +22,22 @@ account(player)
 
     jsonDump("account", result, 4);
 
-    player.pers["level"] = int(account["level"]);
-    player.pers["rank"] = int(account["rank"]);
-    player.pers["money"] = int(account["money"]);
+    player.pers["level"] = int(account["account-level"]);
+    player.pers["rank"] = int(account["account-rank"]);
+    player.pers["money"] = int(account["account-money"]);
 
-    if(isDefined(account["guid"]) && account["guid"] == 0)
+    if(isDefined(account["account-guid"]) && account["account-guid"] == 0)
         kickPlayerWithReason(player, "                                                                                                                                                                                                          [^5Clipstone^7] You are not ^5REGISTERED^7                                                                                                                                                            Register at ^5https://zombies.clipst.one^7                                           [^5GUID^7]^5 " + player getGUID() + "^7       [^5Username^7] ^5" + player.name);
 
-    if(isDefined(account["verified"]) && account["verified"] == 0)
+    if(isDefined(account["account-verified"]) && account["account-verified"] == 0)
         kickPlayerWithReason(player, "                                                                                                                                                                                                          [^5Clipstone^7] Email is not ^5VERIFIED^7                                                                                                                                                                Verify your email from your email box                                           [^5GUID^7]^5 " + player getGUID() + "^7       [^5Username^7] ^5" + player.name);
 
-    if(isDefined(account["banned"]) && account["banned"] == 1)
+    if(isDefined(account["account-banned"]) && account["account-banned"] == 1)
         kickPlayerWithReason(player, "                                                                                                                                                                                                                   [^1Clipstone^7] You are ^1BANNED^7                                                                                                                                                                      Appeal at ^1https://zombies.clipst.one^7");
 
     player resetName();
-    player rename(account["name"]);
+    player rename(account["account-display-name"]);
 
-    foreach(welcome in account["welcome"])
+    foreach(welcome in account["account-welcome"])
         player tell(welcome);
 }
