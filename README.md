@@ -1,2 +1,2 @@
-# ClipstoneZombies-Scripts
-Clipstone Zombies Scripts For Plutonium
+> [!IMPORTANT]
+> Assets are in a working state for development but are in no way near done!
