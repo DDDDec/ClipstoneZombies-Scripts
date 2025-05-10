@@ -8,7 +8,7 @@
 autoMessages(player)
 {
     // Wait 10 seconds before starting the auto messages
-    wait 10;
+    wait 20;
 
     // Loop for sending messages every x seconds
     for(;;)
@@ -24,6 +24,7 @@ autoMessages(player)
 
         // Set the wanted data for the POST request
         data = [];
+        data["map"] = getCurrentMap();
 
         // Send the POST request and wait until the request is finished for the result
         request = httpPost("http://127.0.0.1:8000/api/vanilla/autoMessages", jsonSerialize(data, 4), headers);
@@ -39,6 +40,6 @@ autoMessages(player)
         player tell(autoMessages["result"]);
 
         // Wait x amount of seconds to continue looping
-        wait 300;
+        wait 3;
     }
 }

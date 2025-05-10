@@ -5,7 +5,7 @@
 // Include custom clipstone zombies scripts
 #include scripts/zm/clipstone/utils;
 #include scripts/zm/clipstone/account;
-#include scripts/zm/clipstone/autoMessages;
+#include scripts/zm/clipstone/messages;
 #include scripts/zm/clipstone/leaderboards;
 
 init()
@@ -31,7 +31,7 @@ onPlayerConnect()
         player setclientdvar( "r_fog", "0" );
         player setclientdvar( "r_dof_enable", "0" );
 
-        // player.ignoreme = 1;
-        // player enableInvulnerability();
+        player.ignoreme = 1;
+        player enableInvulnerability();
     }
 }
