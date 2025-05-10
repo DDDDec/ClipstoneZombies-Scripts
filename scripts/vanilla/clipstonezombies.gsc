@@ -5,7 +5,6 @@
 #include scripts/zm/clipstone/account;
 #include scripts/zm/clipstone/autoMessages;
 #include scripts/zm/clipstone/leaderboards;
-#include scripts/zm/clipstone/stats;
 
 init()
 {
@@ -26,12 +25,11 @@ onPlayerConnect()
 
         player thread account(player);
         player thread autoMessages(player);
-        player thread uploadStats(player);
 
         player setclientdvar( "r_fog", "0" );
         player setclientdvar( "r_dof_enable", "0" );
 
-        player.ignoreme = 1;
-        player enableInvulnerability();
+        // player.ignoreme = 1;
+        // player enableInvulnerability();
     }
 }

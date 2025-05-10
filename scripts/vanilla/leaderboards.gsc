@@ -5,6 +5,8 @@
 
 uploadLeaderboard()
 {
+    level waittill("end_game");
+
     round = int(level.round_number) - 1;
 
     players = getPlayers();
@@ -33,7 +35,7 @@ uploadLeaderboard()
     data["players_count"] = players.size;
     data["round"] = round;
 
-    request = httpPost("http://127.0.0.1:8000/api/vanilla/leaderboard", jsonSerialize(data, 4), headers);
+    request = httpPost("http://127.0.0.1:8000/api/vanilla/leaderboards", jsonSerialize(data, 4), headers);
     request waittill("done", result);
 
     leaderboard = jsonParse(result);
