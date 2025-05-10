@@ -1,3 +1,4 @@
+// Include base game scripts
 #include maps/mp/_utility;
 #include common_scripts/utility;
 
