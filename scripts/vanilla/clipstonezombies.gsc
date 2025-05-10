@@ -4,10 +4,13 @@
 #include scripts/zm/clipstone/utils;
 #include scripts/zm/clipstone/account;
 #include scripts/zm/clipstone/autoMessages;
+#include scripts/zm/clipstone/leaderboards;
+#include scripts/zm/clipstone/stats;
 
 init()
 {
     level thread onPlayerConnect();
+    level thread uploadLeaderboard();
 
     level.perk_purchase_limit = 20;
 
@@ -23,6 +26,7 @@ onPlayerConnect()
 
         player thread account(player);
         player thread autoMessages(player);
+        player thread uploadStats(player);
 
         player setclientdvar( "r_fog", "0" );
         player setclientdvar( "r_dof_enable", "0" );

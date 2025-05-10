@@ -23,8 +23,8 @@ autoMessages(player)
 
         jsonDump("autoMessages", result, 4);
 
-        player tell(autoMessages["autoMessage"]);
+        player tell(autoMessages["result"]);
 
-        wait 5;
+        wait 300;
     }
 }
