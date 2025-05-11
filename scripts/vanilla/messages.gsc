@@ -10,6 +10,9 @@ messages()
     // Loop for sending messages every x seconds
     for(;;)
     {
+        // Wait x amount of seconds to continue looping
+        wait 300;
+
         // Set the headers for the POST request
         headers = [];
         headers["Content-Type"] = "application/json";
@@ -32,8 +35,5 @@ messages()
 
         // Tell the player the result of the POST request
         say(messages["result"]);
-
-        // Wait x amount of seconds to continue looping
-        wait 3;
     }
 }

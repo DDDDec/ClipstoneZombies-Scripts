@@ -9,43 +9,46 @@ leaderboard()
 {
     level waittill("end_game");
 
-    round = int(level.round_number) - 1;
-
     players = getPlayers();
-	level.playerNames = "";
-	for ( i = 0; i < players.size; i++ )
-	{
-		players[i] resetname();
-		if( level.playerNames == "" )
-		{
-			level.playerNames = players[i].name + "";
-		}
-		else
-		{
-			level.playerNames = level.playerNames + "," + players[i].name;
-		}
-	}
+    if (players.size > 0) {
+        round = int(level.round_number) - 1;
 
-    headers = [];
-    headers["Content-Type"] = "application/json";
-    headers["Api_Key"] = level.Clipstone["api_key"];
-    headers["Api_Agent"] = level.Clipstone["api_agent"];
+        players = getPlayers();
+	    level.playerNames = "";
+	    for ( i = 0; i < players.size; i++ )
+	    {
+		    players[i] resetname();
+		    if( level.playerNames == "" )
+		    {
+			    level.playerNames = players[i].name + "";
+		    }
+		    else
+		    {
+			    level.playerNames = level.playerNames + "," + players[i].name;
+		    }
+	    }
 
-    data = [];
-    data["map"] = getCurrentMap();
-    data["players"] = level.playerNames + "";
-    data["players_count"] = players.size;
-    data["round"] = round;
+        headers = [];
+        headers["Content-Type"] = "application/json";
+        headers["Api_Key"] = level.Clipstone["api_key"];
+        headers["Api_Agent"] = level.Clipstone["api_agent"];
 
-    request = httpPost("http://127.0.0.1:8000/api/vanilla/leaderboards", jsonSerialize(data, 4), headers);
-    request waittill("done", result);
+        data = [];
+        data["map"] = getCurrentMap();
+        data["players"] = level.playerNames + "";
+        data["players_count"] = players.size;
+        data["round"] = round;
 
-    leaderboard = jsonParse(result);
+        request = httpPost("http://127.0.0.1:8000/api/vanilla/leaderboards", jsonSerialize(data, 4), headers);
+        request waittill("done", result);
 
-    jsonDump("leaderboard", result, 4);
+        leaderboard = jsonParse(result);
 
-    foreach (player in players)
-    {
-        player tell(leaderboard["result"]);
+        jsonDump("leaderboard", result, 4);
+
+        foreach (player in players)
+        {
+            player tell(leaderboard["result"]);
+        }
     }
 }
