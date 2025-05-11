@@ -41,6 +41,11 @@ onPlayerSay() {
                 case "account":
                     getAccount(player);
                     break;
+
+                case "lb":
+                case "leaderboards":
+                    getLeaderboards(player);
+                    break;
             }
         }
     }

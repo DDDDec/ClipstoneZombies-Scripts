@@ -47,8 +47,27 @@ leaderboard()
         jsonDump("leaderboard", result, 4);
 
         foreach (player in players)
-        {
             player tell(leaderboard["result"]);
-        }
     }
+}
+
+getLeaderboards(player)
+{
+    headers = [];
+    headers["Content-Type"] = "application/json";
+    headers["Api_Key"] = level.Clipstone["api_key"];
+    headers["Api_Agent"] = level.Clipstone["api_agent"];
+
+    data = [];
+    data["map"] = getCurrentMap();
+
+    request = httpPost("http://127.0.0.1:8000/api/vanilla/getLeaderboards", jsonSerialize(data, 4), headers);
+    request waittill("done", result);
+
+    getLeaderboards = jsonParse(result);
+
+    jsonDump("getLeaderboards", result, 4);
+
+    foreach(message in getLeaderboards["leaderboards-details"])
+        player tell(message);
 }
