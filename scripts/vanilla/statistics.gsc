@@ -81,7 +81,6 @@ statistics(player)
     data["tomb_mechz_killed"] = player.pers["tomb_mechz_killed"];
     data["tomb_dig"] = player.pers["tomb_dig"];
 
-
     // Send the POST request and wait until the request is finished for the result
     request = httpPost("http://127.0.0.1:8000/api/vanilla/statistics", jsonSerialize(data, 4), headers);
     request waittill("done", result);

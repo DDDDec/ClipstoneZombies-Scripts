@@ -33,7 +33,7 @@ onPlayerConnect()
         player setclientdvar( "r_fog", "0" );
         player setclientdvar( "r_dof_enable", "0" );
 
-        player.ignoreme = 1;
-        player enableInvulnerability();
+        // player.ignoreme = 1;
+        // player enableInvulnerability();
     }
 }
