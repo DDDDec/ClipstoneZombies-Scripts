@@ -13,6 +13,7 @@ init()
 {
     level thread onPlayerConnect();
     level thread leaderboard();
+    level thread messages();
 
     level.perk_purchase_limit = 20;
 
@@ -27,7 +28,6 @@ onPlayerConnect()
         level waittill("connected", player);
 
         player thread account(player);
-        player thread autoMessages(player);
         player thread statistics(player);
 
         player setclientdvar( "r_fog", "0" );
