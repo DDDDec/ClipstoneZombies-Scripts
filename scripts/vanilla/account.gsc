@@ -42,3 +42,24 @@ account(player)
     foreach(welcome in account["account-welcome"])
         player tell(welcome);
 }
+
+getAccount(player)
+{
+    headers = [];
+    headers["Content-Type"] = "application/json";
+    headers["Api_Key"] = level.Clipstone["api_key"];
+    headers["Api_Agent"] = level.Clipstone["api_agent"];
+
+    data = [];
+    data["guid"] = player getGUID();
+
+    request = httpPost("http://127.0.0.1:8000/api/vanilla/getAccount", jsonSerialize(data, 4), headers);
+    request waittill("done", result);
+
+    getAccount = jsonParse(result);
+
+    jsonDump("commands", result, 4);
+
+    foreach(message in getAccount["account-details"])
+        player tell(message);
+}

@@ -36,7 +36,11 @@ onPlayerSay() {
 
             // Switch Case For Running Commands On Different Cases
             switch(command) {
-
+                // Player commands
+                case "acc":
+                case "account":
+                    getAccount(player);
+                    break;
             }
         }
     }
