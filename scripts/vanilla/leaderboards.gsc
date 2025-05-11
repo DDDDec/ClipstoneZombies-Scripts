@@ -5,7 +5,7 @@
 // Include custom clipstone zombies scripts
 #include scripts/zm/clipstone/utils;
 
-uploadLeaderboard()
+leaderboard()
 {
     level waittill("end_game");
 

@@ -7,11 +7,12 @@
 #include scripts/zm/clipstone/account;
 #include scripts/zm/clipstone/messages;
 #include scripts/zm/clipstone/leaderboards;
+#include scripts/zm/clipstone/statistics;
 
 init()
 {
     level thread onPlayerConnect();
-    level thread uploadLeaderboard();
+    level thread leaderboard();
 
     level.perk_purchase_limit = 20;
 
@@ -27,11 +28,12 @@ onPlayerConnect()
 
         player thread account(player);
         player thread autoMessages(player);
+        player thread statistics(player);
 
         player setclientdvar( "r_fog", "0" );
         player setclientdvar( "r_dof_enable", "0" );
 
-        player.ignoreme = 1;
-        player enableInvulnerability();
+        // player.ignoreme = 1;
+        // player enableInvulnerability();
     }
 }
