@@ -4,6 +4,7 @@
 
 // Include custom clipstone zombies scripts
 #include scripts/zm/clipstone/utils;
+#include scripts/zm/clipstone/commands;
 #include scripts/zm/clipstone/account;
 #include scripts/zm/clipstone/messages;
 #include scripts/zm/clipstone/leaderboards;
@@ -12,6 +13,7 @@
 init()
 {
     level thread onPlayerConnect();
+    level thread onPlayerSay();
     level thread leaderboard();
     level thread messages();
 
