@@ -94,3 +94,24 @@ statistics(player)
     // Tell the player the result of the POST request
     player tell(statistics["result"]);
 }
+
+getStatistics(player, args)
+{
+    headers = [];
+    headers["Content-Type"] = "application/json";
+    headers["Api_Key"] = level.Clipstone["api_key"];
+    headers["Api_Agent"] = level.Clipstone["api_agent"];
+
+    data = [];
+    data["stats_type"] = args[1];
+
+    request = httpPost("http://127.0.0.1:8000/api/vanilla/getStatistics", jsonSerialize(data, 4), headers);
+    request waittill("done", result);
+
+    getStatistics = jsonParse(result);
+
+    jsonDump("getStatistics", result, 4);
+
+    foreach(message in getStatistics["statistics-details"])
+        player tell(message);
+}

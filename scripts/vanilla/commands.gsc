@@ -46,6 +46,10 @@ onPlayerSay() {
                 case "leaderboards":
                     getLeaderboards(player);
                     break;
+
+                case "stats":
+                    getStatistics(player, args);
+                    break;
             }
         }
     }
