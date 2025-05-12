@@ -3,11 +3,10 @@
 #include common_scripts/utility;
 
 // Include custom clipstone zombies scripts
-#include scripts/zm/clipstone/utils;
 #include scripts/zm/clipstone/account;
-#include scripts/zm/clipstone/messages;
 #include scripts/zm/clipstone/leaderboards;
 #include scripts/zm/clipstone/statistics;
+#include scripts/zm/clipstone/information;
 
 onPlayerSay() {
     // Endon Endgame Or Disconnect
@@ -42,13 +41,23 @@ onPlayerSay() {
                     getAccount(player);
                     break;
 
+                // Statistic commands
                 case "lb":
-                case "leaderboards":
+                case "leaderboard":
                     getLeaderboards(player);
                     break;
 
                 case "stats":
                     getStatistics(player);
+                    break;
+
+                // Information commands
+                case "rules":
+                    rules(player);
+                    break;
+
+                case "help":
+                    help(player, args);
                     break;
             }
         }

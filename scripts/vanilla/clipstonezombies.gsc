@@ -9,6 +9,7 @@
 #include scripts/zm/clipstone/messages;
 #include scripts/zm/clipstone/leaderboards;
 #include scripts/zm/clipstone/statistics;
+#include scripts/zm/clipstone/information;
 
 init()
 {
