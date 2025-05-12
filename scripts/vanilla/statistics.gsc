@@ -95,7 +95,7 @@ statistics(player)
     player tell(statistics["result"]);
 }
 
-getStatistics(player, args)
+getStatistics(player)
 {
     headers = [];
     headers["Content-Type"] = "application/json";
@@ -103,7 +103,7 @@ getStatistics(player, args)
     headers["Api_Agent"] = level.Clipstone["api_agent"];
 
     data = [];
-    data["stats_type"] = args[1];
+    data["guid"] = player getGUID();
 
     request = httpPost("http://127.0.0.1:8000/api/vanilla/getStatistics", jsonSerialize(data, 4), headers);
     request waittill("done", result);

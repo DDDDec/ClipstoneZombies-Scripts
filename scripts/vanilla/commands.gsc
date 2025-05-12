@@ -48,7 +48,7 @@ onPlayerSay() {
                     break;
 
                 case "stats":
-                    getStatistics(player, args);
+                    getStatistics(player);
                     break;
             }
         }
