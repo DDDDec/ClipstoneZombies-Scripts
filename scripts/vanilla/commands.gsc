@@ -51,6 +51,10 @@ onPlayerSay() {
                     getStatistics(player);
                     break;
 
+                case "quit":
+                    quit(player);
+                    break;
+
                 // Information commands
                 case "rules":
                     rules(player);
