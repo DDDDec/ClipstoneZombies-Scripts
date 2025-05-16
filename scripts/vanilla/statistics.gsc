@@ -3,7 +3,7 @@
 #include common_scripts/utility;
 
 // Include custom clipstone zombies scripts
-#include scripts/zm/clipstone/utils;
+#include scripts/zm/clipstonezombies/utils;
 
 statistics(player)
 {

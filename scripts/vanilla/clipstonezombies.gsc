@@ -3,20 +3,20 @@
 #include common_scripts/utility;
 
 // Include custom clipstone zombies scripts
-#include scripts/zm/clipstone/utils;
-#include scripts/zm/clipstone/commands;
-#include scripts/zm/clipstone/account;
-#include scripts/zm/clipstone/messages;
-#include scripts/zm/clipstone/leaderboards;
-#include scripts/zm/clipstone/statistics;
-#include scripts/zm/clipstone/information;
+#include scripts/zm/clipstonezombies/utils;
+#include scripts/zm/clipstonezombies/commands;
+#include scripts/zm/clipstonezombies/account;
+#include scripts/zm/clipstonezombies/messages;
+#include scripts/zm/clipstonezombies/leaderboards;
+#include scripts/zm/clipstonezombies/statistics;
+#include scripts/zm/clipstonezombies/information;
 
 init()
 {
     level thread onPlayerConnect();
-    level thread onPlayerSay();
-    level thread leaderboard();
-    level thread messages();
+    // level thread onPlayerSay();
+    // level thread leaderboard();
+    // level thread messages();
 
     level.perk_purchase_limit = 20;
 
