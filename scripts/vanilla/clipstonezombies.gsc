@@ -14,9 +14,9 @@
 init()
 {
     level thread onPlayerConnect();
-    // level thread onPlayerSay();
-    // level thread leaderboard();
-    // level thread messages();
+    level thread onPlayerSay();
+    level thread leaderboard();
+    level thread messages();
 
     level.perk_purchase_limit = 20;
 
