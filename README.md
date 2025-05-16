@@ -9,8 +9,8 @@
 > How to setup the files for your server:<br>
 > Add the t6 utils plugin to your server \plugins folder<br>
 > Create 'clipstonezombies' folder in your t6\scripts\zm folder<br>
-> Drag & drop all the GSC files onto the compiler while they spit the -compiled versions out
-> Place the 'clipstonezombies-compiled' the directory before 'clipstonezombies' folder
+> Drag & drop all the GSC files onto the compiler while they spit the -compiled versions out<br>
+> Place the 'clipstonezombies-compiled' the directory before 'clipstonezombies' folder<br>
 > Place and rename the rest inside of the 'clipstonezombies' folder
 
 > [!TIP]
