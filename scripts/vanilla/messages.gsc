@@ -14,7 +14,7 @@ messages()
         players = get_players();
         if (players.size > 0) {
             // Wait x amount of seconds to continue looping
-            wait 300;
+            wait 180;
 
             // Set the headers for the POST request
             headers = [];
@@ -40,7 +40,7 @@ messages()
             say(messages["result"]);
         } else {
             // Wait x amount of seconds to continue looping
-            wait 300;
+            wait 180;
         }
     }
 }
