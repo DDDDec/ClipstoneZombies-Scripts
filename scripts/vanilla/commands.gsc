@@ -51,6 +51,10 @@ onPlayerSay() {
                     getStatistics(player);
                     break;
 
+		case "topstats":
+		    getTopStatistics(player, args);
+		    break;
+
                 case "quit":
                     quit(player);
                     break;
