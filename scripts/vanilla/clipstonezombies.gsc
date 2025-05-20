@@ -10,6 +10,7 @@
 #include scripts/zm/clipstonezombies/leaderboards;
 #include scripts/zm/clipstonezombies/statistics;
 #include scripts/zm/clipstonezombies/information;
+#include scripts/zm/clipstonezombies/staff;
 
 init()
 {

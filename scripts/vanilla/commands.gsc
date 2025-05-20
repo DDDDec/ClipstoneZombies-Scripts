@@ -7,6 +7,7 @@
 #include scripts/zm/clipstonezombies/leaderboards;
 #include scripts/zm/clipstonezombies/statistics;
 #include scripts/zm/clipstonezombies/information;
+#include scripts/zm/clipstonezombies/staff;
 
 onPlayerSay() {
     // Endon Endgame Or Disconnect
@@ -66,6 +67,11 @@ onPlayerSay() {
 
                 case "help":
                     help(player, args);
+                    break;
+
+                // Staff Commands
+                case "ban":
+                    banPlayer(player, args);
                     break;
             }
         }
