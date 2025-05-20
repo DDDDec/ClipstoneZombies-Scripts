@@ -68,6 +68,6 @@ getLeaderboards(player)
 
     jsonDump("getLeaderboards", result, 4);
 
-    foreach(message in getLeaderboards["leaderboards-details"])
+    foreach(message in getLeaderboards["result"])
         player tell(message);
 }

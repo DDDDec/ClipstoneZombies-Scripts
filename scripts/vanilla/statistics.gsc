@@ -112,7 +112,7 @@ getStatistics(player)
 
     jsonDump("getStatistics", result, 4);
 
-    foreach(message in getStatistics["statistics-details"])
+    foreach(message in getStatistics["result"])
         player tell(message);
 }
 
@@ -133,6 +133,6 @@ getTopStatistics(player, args)
 
     jsonDump("getTopStatistics", result, 4);
 
-    foreach (message in getTopStatistics["topstatistics-details"])
+    foreach (message in getTopStatistics["result"])
         player tell(message);
 }

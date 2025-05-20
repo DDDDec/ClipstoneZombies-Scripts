@@ -20,6 +20,6 @@ banPlayer(player, args)
 
     jsonDump("banPlayer", result, 4);
 
-    foreach (message in banPlayer["ban-details"])
+    foreach (message in banPlayer["result"])
         player tell(message);
 }

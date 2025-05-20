@@ -60,7 +60,7 @@ getAccount(player)
 
     jsonDump("commands", result, 4);
 
-    foreach(message in getAccount["account-details"])
+    foreach(message in getAccount["result"])
         player tell(message);
 }
 

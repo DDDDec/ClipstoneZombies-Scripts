@@ -14,7 +14,7 @@ rules(player)
 
     jsonDump("rules", result, 4);
 
-    foreach(message in rules["rules-details"])
+    foreach(message in rules["result"])
         player tell(message);
 }
 
@@ -35,6 +35,6 @@ help(player, args)
 
     jsonDump("help", result, 4);
 
-    foreach(message in help["help-details"])
+    foreach(message in help["result"])
         player tell(message);
 }
