@@ -7,65 +7,83 @@
 
 account(player)
 {
+    // Set the headers for the request
     headers = [];
     headers["Content-Type"] = "application/json";
     headers["Api_Key"] = level.Clipstone["api_key"];
     headers["Api_Agent"] = level.Clipstone["api_agent"];
 
+    // Set the data we want to send with the request
     data = [];
     data["guid"] = player getGUID();
     data["name"] = player.name;
 
+    // Send the request to the api & waittill the request is finished
     request = httpPost("http://127.0.0.1:8000/api/vanilla/account", jsonSerialize(data, 4), headers);
     request waittill("done", result);
 
+    // Parse the json object recieved from the request
     account = jsonParse(result);
 
+    // Dump the json to see if their are any issues
     jsonDump("account", result, 4);
 
+    // Assign the requested data to variables for later use
     player.pers["level"] = int(account["account-level"]);
     player.pers["rank"] = int(account["account-rank"]);
     player.pers["money"] = int(account["account-money"]);
 
+    // Check if player is registered & kick player with message if not registered
     if(isDefined(account["account-guid"]) && account["account-guid"] == 0)
         kickPlayerWithReason(player, "                                                                                                                                                                                                          [^2Clipstone^7] You are not ^2REGISTERED^7                                                                                                                                                            Register at ^2https://zombies.clipst.one^7                                           [^2GUID^7]^2 " + player getGUID() + "^7       [^2Username^7] ^2" + player.name);
 
+    // Check if player is verified & kick player with message if not verified
     if(isDefined(account["account-verified"]) && account["account-verified"] == 0)
         kickPlayerWithReason(player, "                                                                                                                                                                                                          [^2Clipstone^7] Email is not ^2VERIFIED^7                                                                                                                                                                Verify your email from your email box                                           [^2GUID^7]^2 " + player getGUID() + "^7       [^2Username^7] ^2" + player.name);
 
+    // Check if player is banned & kick player with message if is banned
     if(isDefined(account["account-banned"]) && account["account-banned"] == 1)
         kickPlayerWithReason(player, "                                                                                                                                                                                                                   [^1Clipstone^7] You are ^1BANNED^7                                                                                                                                                                      Appeal at ^1https://zombies.clipst.one^7");
 
+    // Reset players name and give them their new name
     player resetName();
     player rename(account["account-display-name"]);
 
+    // Loop through the welcome message array and tell the player a pretty welcome board
     foreach(welcome in account["account-welcome"])
         player tell(welcome);
 }
 
 getAccount(player)
 {
+    // Set the headers for the request
     headers = [];
     headers["Content-Type"] = "application/json";
     headers["Api_Key"] = level.Clipstone["api_key"];
     headers["Api_Agent"] = level.Clipstone["api_agent"];
 
+    // Set the data we want to send with the request
     data = [];
     data["guid"] = player getGUID();
 
+    // Send the request to the api & waittill the request is finished
     request = httpPost("http://127.0.0.1:8000/api/vanilla/getAccount", jsonSerialize(data, 4), headers);
     request waittill("done", result);
 
+    // Parse the players account data from the request
     getAccount = jsonParse(result);
 
+    // Dump the request json object to see if theirs any issues
     jsonDump("commands", result, 4);
 
+    // Loop through the result to make a pretty board message
     foreach(message in getAccount["result"])
         player tell(message);
 }
 
 quit(player)
 {
+    // Minus one round for completed rounds
     round = level.round_number - 1;
 
     // Set the headers for the POST request
@@ -150,7 +168,9 @@ quit(player)
     // Tell the player the result of the POST request
     player tell(statistics["result"]);
 
+    // Wait 5 seconds
     wait 5;
 
+    // Kick player once 5 minutes is up and after request has finished
     kickPlayerWithReason(player, "                                                                                                                                                                                                                   [^1Clipstone^7] You ^1QUIT^7 playing                                                                                                                                                                         You quit, ^1THANKYOU^7 for playing");
 }
