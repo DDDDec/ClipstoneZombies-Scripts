@@ -4,9 +4,11 @@
 
 getCurrentMap()
 {
+    // Get the location & gamemode of the map
     location = getDvar( "ui_zm_mapstartlocation" );
     gamemode = getDvar( "ui_gametype" );
 
+    // Check which map is being used on the server & return it
     if( location == "processing" )
         return "Buried";
     else if( location == "rooftop" )
@@ -31,5 +33,6 @@ getCurrentMap()
 
 kickPlayerWithReason(player, reason)
 {
+    // Execute the kick command on a specific player
     executeCommand("clientkick_for_reason  " + player GetEntityNumber() + " \"" + reason + "\"");
 }
