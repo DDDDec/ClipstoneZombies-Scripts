@@ -73,6 +73,10 @@ onPlayerSay() {
                 case "ban":
                     banPlayer(player, args);
                     break;
+
+		case "godmode":
+		    godmode(player);
+		    break;
             }
         }
     }
