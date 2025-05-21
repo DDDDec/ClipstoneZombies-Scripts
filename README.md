@@ -15,4 +15,5 @@
 
 > [!TIP]
 > Application Repo: https://github.com/WeedLikeTooSmoke/ClipstoneZombies<br>
-> Mods Repo: https://github.com/WeedLikeTooSmoke/ClipstoneZombies-Mod
+> Mods Repo: https://github.com/WeedLikeTooSmoke/ClipstoneZombies-Mod<br>
+> Bot Repo: https://github.com/WeedLikeTooSmoke/ClipstoneZombies-Bot
