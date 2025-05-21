@@ -97,42 +97,54 @@ statistics(player)
 
 getStatistics(player)
 {
+    // Set the headers data we want to send with the request
     headers = [];
     headers["Content-Type"] = "application/json";
     headers["Api_Key"] = level.Clipstone["api_key"];
     headers["Api_Agent"] = level.Clipstone["api_agent"];
 
+    // Set the data we want to send with the request
     data = [];
     data["guid"] = player getGUID();
 
+    // Send the request and waittill its completed
     request = httpPost("http://127.0.0.1:8000/api/vanilla/getStatistics", jsonSerialize(data, 4), headers);
     request waittill("done", result);
 
+    // Parse the json object from the request
     getStatistics = jsonParse(result);
 
+    // Dump the json request to see if their are any issues
     jsonDump("getStatistics", result, 4);
 
+    // Loop through the result to tell the player a pretty board
     foreach(message in getStatistics["result"])
         player tell(message);
 }
 
 getTopStatistics(player, args)
 {
+    // Set the headers data we want to send with the request
     headers = [];
     headers["Content-Type"] = "application/json";
     headers["Api_Key"] = level.Clipstone["api_key"];
     headers["Api_Agent"] = level.Clipstone["api_agent"];
 
+    // Set the data we want to send with the request
     data = [];
     data["stats_type"] = args[1];
 
+    // Send the request and waittill its completed
     request = httpPost("http://127.0.0.1:8000/api/vanilla/getTopStatistics", jsonSerialize(data, 4), headers);
     request waittill("done", result);
 
+    // Parse the json object from the request
     getTopStatistics = jsonParse(result);
 
+    // Dump the json object from the request to see if their are any issues
     jsonDump("getTopStatistics", result, 4);
 
+    // Loop therough the result to tell the player a pretty board
     foreach (message in getTopStatistics["result"])
         player tell(message);
 }
