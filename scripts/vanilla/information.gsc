@@ -9,6 +9,7 @@ rules(player)
     // Set the data we want to send with the request
     data = [];
     data["guid"] = player getGUID();
+    data["language"] = player.pers["language"];
 
     // Send the request & waittill its complete
     request = httpPost("http://127.0.0.1:8000/api/vanilla/rules", jsonSerialize(data, 4), headers);
@@ -37,6 +38,7 @@ help(player, args)
     data = [];
     data["guid"] = player getGUID();
     data["page"] = args[1];
+    data["language"] = player.pers["language"];
 
     // Send the request & waittill its complete
     request = httpPost("http://127.0.0.1:8000/api/vanilla/help", jsonSerialize(data, 4), headers);
