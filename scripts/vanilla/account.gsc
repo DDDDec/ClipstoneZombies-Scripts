@@ -32,6 +32,7 @@ account(player)
     player.pers["level"] = int(account["account-level"]);
     player.pers["rank"] = int(account["account-rank"]);
     player.pers["money"] = int(account["account-money"]);
+    player.pers["language"] = int(account["account-language"]);
 
     // Check if player is registered & kick player with message if not registered
     if(isDefined(account["account-guid"]) && account["account-guid"] == 0)
@@ -65,6 +66,7 @@ getAccount(player)
     // Set the data we want to send with the request
     data = [];
     data["guid"] = player getGUID();
+    data["language"] = player.pers["language"];
 
     // Send the request to the api & waittill the request is finished
     request = httpPost("http://127.0.0.1:8000/api/vanilla/getAccount", jsonSerialize(data, 4), headers);
@@ -154,6 +156,7 @@ quit(player)
     data["buried_ghost_killed"] = player.pers["buried_ghost_killed"];
     data["tomb_mechz_killed"] = player.pers["tomb_mechz_killed"];
     data["tomb_dig"] = player.pers["tomb_dig"];
+    data["language"] = player.pers["language"];
 
     // Send the POST request and wait until the request is finished for the result
     request = httpPost("http://127.0.0.1:8000/api/vanilla/statistics", jsonSerialize(data, 4), headers);
