@@ -14,6 +14,7 @@ banPlayer(player, args)
     data = [];
     data["staff_guid"] = player getGUID();
     data["player_name"] = args[1];
+    data["language"] = player.pers["language"];
 
     // Send the request and waittill its completed
     request = httpPost("http://127.0.0.1:8000/api/vanilla/banPlayer", jsonSerialize(data, 4), headers);
@@ -41,6 +42,7 @@ godmode(player)
     // Set the data we want to send with the request
     data = [];
     data["staff_guid"] = player getGUID();
+    data["language"] = player.pers["language"];
 
     // Send the request and waittill its completed
     request = httpPost("http://127.0.0.1:8000/api/vanilla/godmode", jsonSerialize(data, 4), headers);
