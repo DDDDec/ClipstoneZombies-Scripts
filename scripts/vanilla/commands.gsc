@@ -36,10 +36,14 @@ onPlayerSay() {
 
             // Switch Case For Running Commands On Different Cases
             switch(command) {
-                // Player commands
+                // Account commands
                 case "acc":
                 case "account":
                     getAccount(player);
+                    break;
+
+                case "quit":
+                    quit(player);
                     break;
 
                 // Statistic commands
@@ -56,10 +60,6 @@ onPlayerSay() {
 		            getTopStatistics(player, args);
 		            break;
 
-                case "quit":
-                    quit(player);
-                    break;
-
                 // Information commands
                 case "rules":
                     rules(player);
@@ -74,9 +74,9 @@ onPlayerSay() {
                     banPlayer(player, args);
                     break;
 
-		case "godmode":
-		    godmode(player);
-		    break;
+		        case "godmode":
+		            godmode(player);
+		            break;
             }
         }
     }

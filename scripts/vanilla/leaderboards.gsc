@@ -33,30 +33,30 @@ leaderboard()
 		    }
 	    }
 
-	// Set the header data we want to send with the request
+	    // Set the header data we want to send with the request
         headers = [];
         headers["Content-Type"] = "application/json";
         headers["Api_Key"] = level.Clipstone["api_key"];
         headers["Api_Agent"] = level.Clipstone["api_agent"];
 
-	// Set the data we want to send with the request
+	    // Set the data we want to send with the request
         data = [];
         data["map"] = getCurrentMap();
         data["players"] = level.playerNames + "";
         data["players_count"] = players.size;
         data["round"] = round;
 
-	// Send the request and waittill completed
+	    // Send the request and waittill completed
         request = httpPost("http://127.0.0.1:8000/api/vanilla/leaderboards", jsonSerialize(data, 4), headers);
         request waittill("done", result);
 
-	// Parse the json object from the request
+	    // Parse the json object from the request
         leaderboard = jsonParse(result);
 
-	// Dump the json object to a file to see if their are any issues
+	    // Dump the json object to a file to see if their are any issues
         jsonDump("leaderboard", result, 4);
 
-	// Loop through the result json object to tell the player a pretty board
+	    // Loop through the result json object to tell the player a pretty board
         foreach (player in players)
             player tell(leaderboard["result"]);
     }

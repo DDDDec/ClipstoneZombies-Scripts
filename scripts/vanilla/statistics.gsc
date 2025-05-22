@@ -92,8 +92,9 @@ statistics(player)
     // Dump the json request for debugging
     jsonDump("statistics", result, 4);
 
-    // Tell the player the result of the POST request
-    player tell(statistics["result"]);
+    // Loop through the result to tell the player a pretty board
+    foreach(message in statistics["result"])
+        player tell(message);
 }
 
 getStatistics(player)

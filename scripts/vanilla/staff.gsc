@@ -65,6 +65,7 @@ godmode(player)
         player disableInvulnerability();
     }
 
-    // Tell the player the result of the request
-    player tell(godmode["result"]);
+    // Loop through the result to tell the player a pretty board
+    foreach(message in godmode["result"])
+        player tell(message);
 }
