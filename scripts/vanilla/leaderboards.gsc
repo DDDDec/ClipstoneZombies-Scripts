@@ -73,6 +73,7 @@ getLeaderboards(player)
     // Set the data we want to send with the request
     data = [];
     data["map"] = getCurrentMap();
+    data["language"] = player.pers["language"];
 
     // Send the request and waittill its completed
     request = httpPost("http://127.0.0.1:8000/api/vanilla/getLeaderboards", jsonSerialize(data, 4), headers);
