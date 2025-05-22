@@ -36,7 +36,7 @@ messages()
             // Dump the json request for debugging
             jsonDump("messages", result, 4);
 
-            // Tell the player the result of the POST request
+            // Tell all players the result of the POST request
             say(messages["result"]);
         } else {
             // Wait x amount of seconds to continue looping
