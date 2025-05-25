@@ -5,22 +5,6 @@
 // Include custom clipstone zombies scripts
 #include scripts/zm/clipstonezombies/utils;
 
-tellAllPlayers()
-{
-    players = getPlayers();
-
-    foreach(player in players)
-        player tell('something');
-}
-
-giveAllPlayersMoney()
-{
-    players = getPlayers();
-
-    foreach(player in players)
-        player.score += 500
-}
-
 kickAllPlayers() 
 {
     players = getPlayers();

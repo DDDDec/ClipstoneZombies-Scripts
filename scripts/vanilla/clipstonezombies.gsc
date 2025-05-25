@@ -11,6 +11,7 @@
 #include scripts/zm/clipstonezombies/statistics;
 #include scripts/zm/clipstonezombies/information;
 #include scripts/zm/clipstonezombies/staff;
+#include scripts/zm/clipstonezombies/rcon;
 
 init()
 {
@@ -26,6 +27,9 @@ init()
     // Set the api key and agent for sending and recieving requests
     level.Clipstone["api_key"] = GetDvar("api_key");
     level.Clipstone["api_agent"] = GetDvar("api_agent");
+
+    // Add RCON Commands
+    addCommand("kickAllPlayers", ::kickAllPlayers);
 }
 
 onPlayerConnect()
