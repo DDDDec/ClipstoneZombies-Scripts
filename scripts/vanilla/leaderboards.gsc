@@ -10,7 +10,7 @@ leaderboard()
     // Waittill the game has finished
     level waittill("end_game");
 
-    // Gte all the players in the lobby
+    // Get all the players in the lobby
     players = getPlayers();
 
     // Check if their are any players in the lobby before sorting the players

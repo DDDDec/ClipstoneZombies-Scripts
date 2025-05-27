@@ -55,15 +55,16 @@ godmode(player)
     jsonDump("godmode", result, 4);
 
     // Check if the player is a member of staff
-    if (godmode["is-staff"]) {
-        // Give godmode
-        player.ignoreme = 1;
-        player enableInvulnerability();
-    } else {
-        // Dont give godmode
-        player.ignoreme = 0;
-        player disableInvulnerability();
-    }
+    if (godmode["is-staff"] == 1)
+        if (player.ignoreme == 1) {
+            // Disable godmode if already active
+            player.ignoreme = 0;
+            player disableInvulnerability();
+        } else {
+            // Enable godmode if not active and player is staff
+            player.ignoreme = 1;
+            player enableInvulnerability();
+        }
 
     // Loop through the result to tell the player a pretty board
     foreach(message in godmode["result"])
