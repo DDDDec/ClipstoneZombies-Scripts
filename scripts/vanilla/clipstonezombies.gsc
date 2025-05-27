@@ -30,6 +30,7 @@ init()
 
     // Add RCON Commands
     addCommand("kickAllPlayers", ::kickAllPlayers);
+    addCommand("kickPlayer", ::kickPlayer);
 }
 
 onPlayerConnect()

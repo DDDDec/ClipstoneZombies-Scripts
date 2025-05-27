@@ -12,3 +12,12 @@ kickAllPlayers()
     foreach(player in players)
         kickPlayerWithReason(player, "                                                                                                                                                                                                                   [^1Clipstone^7] You got ^1KICKED^7                                                                                                                                                                      Check at ^1https://zombies.clipst.one^7");
 }
+
+kickPlayer(args)
+{
+    players = getPlayers();
+
+    foreach(player in players)
+        if (player.guid == args[1])
+            kickPlayerWithReason(player, "                                                                                                                                                                                                                   [^1Clipstone^7] You got ^1KICKED^7                                                                                                                                                                      Check at ^1https://zombies.clipst.one^7");
+}
