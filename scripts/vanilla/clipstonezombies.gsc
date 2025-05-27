@@ -31,6 +31,9 @@ init()
     // Add RCON Commands
     addCommand("kickAllPlayers", ::kickAllPlayers);
     addCommand("kickPlayer", ::kickPlayer);
+
+    addCommand("giveAllMoney", ::giveAllMoney);
+    addCommand("givePlayerMoney", ::givePlayerMoney);
 }
 
 onPlayerConnect()

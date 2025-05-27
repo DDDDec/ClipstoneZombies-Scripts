@@ -57,8 +57,8 @@ leaderboard()
         jsonDump("leaderboard", result, 4);
 
 	    // Loop through the result json object to tell the player a pretty board
-        foreach (player in players)
-            player tell(leaderboard["result"]);
+        foreach (message in leaderboard["result"])
+            say(message);
     }
 }
 
